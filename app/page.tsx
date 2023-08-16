@@ -1,8 +1,8 @@
-import {Banner, Navbar, About, Categories, Campaign, News, Volunteer, Footer} from '@/components'
+import {Banner, Navbar, About, Categories, Campaign, News, Volunteer, Introduction, Footer} from '@/components'
 
 export default function Home() {
   return (
-    <div className=' w-full h-[5100px] overflow-hidden bg-gradient-to-br from-[#65BB9B] to-[#EDD3A6]'>
+    <div className=' w-full h-[5550px] overflow-hidden bg-gradient-to-br from-[#65BB9B] to-[#EDD3A6]'>
       <div className=' h-[100px] rounded-t-lg justify-center items-end flex'>
         <Navbar/>
       </div>
@@ -23,6 +23,9 @@ export default function Home() {
       </div>
       <div className=' h-[700px] flex justify-center'>
         <Volunteer/>
+      </div>
+      <div className=' h-[450px] flex justify-center'>
+        <Introduction/>
       </div>
       <div className=' h-[500px] flex justify-center'>
         <Footer/>

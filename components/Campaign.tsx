@@ -19,7 +19,7 @@ function Campaign() {
           </div>
         </div>
       <div className=' w-[90%] grid grid-cols-3 absolute top-[25%] left-[5%] justify-items-center'>
-          <div className=' w-[350px] h-[600px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3'>
+          <div className=' w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3'>
              <Img
                 src="/emergency.avif"
                 alt=''
@@ -45,10 +45,13 @@ function Campaign() {
                   <p className=' text-gray-500'>Raised: <span className=' text-[#EE9B3C]'>$1250</span></p>
                   <p className=' text-gray-500'>Goal: <span className='text-[#0A7558]'>$2500</span></p>
                 </div>
-                <button className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3'>Donate</button>
+                <div className=' w-[100%] flex justify-between text-sm'>
+                  <p className=' text-gray-500'>Current Fund: <span className=' text-[#EE9B3C]'>$1000</span></p>
+                  <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>27/08/2023</span></p>
+                </div>
               </div>
           </div>
-          <div className=' w-[350px] h-[600px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3'>
+          <div className=' w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3'>
              <Img
                 src="/educationCampaign.jpg"
                 alt=''
@@ -74,10 +77,13 @@ function Campaign() {
                   <p className=' text-gray-500'>Raised: <span className=' text-[#EE9B3C]'>$2450</span></p>
                   <p className=' text-gray-500'>Goal: <span className='text-[#0A7558]'>$3500</span></p>
                 </div>
-                <button className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3'>Donate</button>
+                <div className=' w-[100%] flex justify-between text-sm'>
+                  <p className=' text-gray-500'>Current Fund: <span className=' text-[#EE9B3C]'>$1000</span></p>
+                  <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>27/08/2023</span></p>
+                </div>
               </div>
           </div>
-          <div className=' w-[350px] h-[600px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3'>
+          <div className=' w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3'>
              <Img
                 src="/cancer.avif"
                 alt=''
@@ -103,7 +109,10 @@ function Campaign() {
                   <p className=' text-gray-500'>Raised: <span className=' text-[#EE9B3C]'>$4050</span></p>
                   <p className=' text-gray-500'>Goal: <span className='text-[#0A7558]'>$4500</span></p>
                 </div>
-                <button className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3'>Donate</button>
+                <div className=' w-[100%] flex justify-between text-sm'>
+                  <p className=' text-gray-500'>Current Fund: <span className=' text-[#EE9B3C]'>$1000</span></p>
+                  <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>27/08/2023</span></p>
+                </div>
               </div>
           </div>
       </div>

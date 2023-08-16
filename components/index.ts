@@ -6,6 +6,7 @@ import Campaign from './Campaign'
 import News from './News'
 import Volunteer from './Volunteer'
 import Footer from './Footer'
+import Introduction from './Introduction'
 
 export {
     Navbar,
@@ -15,5 +16,6 @@ export {
     Campaign,
     News,
     Volunteer,
-    Footer
+    Footer,
+    Introduction
 }

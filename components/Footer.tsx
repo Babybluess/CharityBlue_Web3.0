@@ -60,10 +60,10 @@ function Footer() {
             </div>
         </div>
         <div className=' w-[100%] h-[10%] px-[10%] justify-between border-t-2 border-white flex items-center'>
-            <div className=' text-gray-500'>
+            <div className=' text-gray-500 text-sm'>
                 <p>Copyright © 2023. All Right Reserved.</p>
             </div>
-            <div className='flex gap-4 text-gray-500'>
+            <div className='flex gap-4 text-gray-500 text-xs'>
                 <p>Terms of Service</p>
                 <p>Privacy Policy</p>
             </div>

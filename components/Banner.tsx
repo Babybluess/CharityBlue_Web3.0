@@ -1,5 +1,6 @@
 import React from 'react'
 import Img from 'next/image'
+import Link from 'next/link'
 
 function Banner() {
   return (
@@ -10,7 +11,7 @@ function Banner() {
                 <p className=' text-gray-400 text-sm mt-8'>CharityBlue is a digital platform for collecting donations to be distributed to people in need</p>
                 <div className = 'flex gap-5 mt-16'>
                     <div className='bg-[#0A7558] rounded-xl px-7 py-2 flex'>
-                        <button className=' text-white'>Donate Now</button>
+                        <Link href="./Donate" className=' text-white'>Donate Now</Link>
                     </div>
                     <div className='flex rounded-xl bg-white border-[2px] border-[#0A7558] px-5 py-2 gap-1'>
                         <Img
@@ -19,7 +20,7 @@ function Banner() {
                             height={10}
                             width={20}
                         />
-                        <button className='text-[#0A7558]'>Watch Video</button>
+                        <Link href="/#introduction" className='text-[#0A7558]'>Watch Video</Link>
                     </div>    
                 </div>  
             </div>

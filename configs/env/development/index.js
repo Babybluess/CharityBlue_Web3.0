@@ -3,15 +3,18 @@ import crowdfundingABI from '../cross-env/abis/crowdfunding.json';
 export default {
 	urlApi: 'https://',
 	urlSocket: 'https://',
-	linkBscScan: 'https://ropsten.etherscan.io',
-	chainId: ['0x3', '0x3', '3', 3],
-	nameChain: 'Ethereum Testnet',
-	linkRPC: 'https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+	linkBscScan: 'https://sepolia.etherscan.io',
+	chainId: ['0xaa36a7', '11155111', 11155111],
+	nameChain: 'Sepolia Testnet',
+	linkRPC: 'https://api.zan.top/node/v1/eth/sepolia/public	',
 	symbol: 'ETH',
 	contracts: {
 		crowdfunding: {
-			address: '0xE9BC0728360637B9C7eb59B53E4F89915f54Da56',
+			address: '0x2c4d843Af6F047A75d46FeC9e91CF0d8d271b0Cb',
 			abi: crowdfundingABI
+		},
+		ethToken: {
+			address: '0x2c4d843Af6F047A75d46FeC9e91CF0d8d271b0Cb'
 		}
 	}
 };

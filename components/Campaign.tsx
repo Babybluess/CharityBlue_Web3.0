@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Img from 'next/image'
+import Link from 'next/link'
 import "./local.css"
 
 function Campaign() {
@@ -11,7 +12,7 @@ function Campaign() {
           <div className=' justify-between flex w-[100%]'>
             <p className='text-base text-gray-500'>How do something great to help others</p>
             <div className='flex gap-2'>
-              <p className=' text-lg text-[#0A7558] font-semibold'><a href="">View All</a></p>
+              <p className=' text-lg text-[#0A7558] font-semibold'><a href="">Create Campaign</a></p>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.0" stroke="currentColor" className="w-[18px] h-[18px] text-[#0A7558] translate-y-[30%]">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
               </svg>
@@ -28,8 +29,13 @@ function Campaign() {
                 style={{ borderRadius:"10px", objectFit:"contain"}}
              />
               <div className=' w-[95%] flex flex-col mx-[2.5%] gap-4'>
-                <div className=' w-[35%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex'>
-                  <p className=' text-xs text-[#664df9] font-semibold'>SOCIAL SERVICE</p>
+                <div className=' flex gap-2'>
+                  <div className=' w-[35%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex'>
+                    <p className=' text-xs text-[#664df9] font-semibold'>SOCIAL SERVICE</p>
+                  </div>
+                  <div className=' cursor-pointer w-[15%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex'>
+                    <p className=' text-xs text-[#36bc98] font-semibold'>VOTE</p>
+                  </div>
                 </div>
                 <div className=' flex flex-col gap-4'>
                   <p className=' text-2xl font-bold'>Help Donate For Cianjur Earthquake Victims</p>
@@ -49,6 +55,9 @@ function Campaign() {
                   <p className=' text-gray-500'>Current Fund: <span className=' text-[#EE9B3C]'>$1000</span></p>
                   <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>27/08/2023</span></p>
                 </div>
+                <div className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex'>
+                  <Link href="./DetailCampaign" id='campaign'><option value="1">Detail</option></Link>
+                </div>
               </div>
           </div>
           <div className=' w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3'>
@@ -60,8 +69,13 @@ function Campaign() {
                 style={{borderRadius:"10px", objectFit:"contain"}}
              />
               <div className=' w-[95%] flex flex-col mx-[2.5%] gap-4'>
-                <div className=' w-[35%] h-8 rounded-3xl bg-[#F9DCE6] justify-center items-center flex'>
-                  <p className=' text-xs text-[#F96E9E] font-semibold'>EDUCATION</p>
+                <div className=' flex gap-2'>
+                  <div className=' w-[35%] h-8 rounded-3xl bg-[#F9DCE6] justify-center items-center flex'>
+                    <p className=' text-xs text-[#F96E9E] font-semibold'>EDUCATION</p>
+                  </div>
+                  <div className=' cursor-pointer w-[15%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex'>
+                    <p className=' text-xs text-[#36bc98] font-semibold'>VOTE</p>
+                  </div>
                 </div>
                 <div className=' flex flex-col gap-4'>
                   <p className=' text-2xl font-bold'>Campaign To Provide Books For Children</p>
@@ -79,7 +93,10 @@ function Campaign() {
                 </div>
                 <div className=' w-[100%] flex justify-between text-sm'>
                   <p className=' text-gray-500'>Current Fund: <span className=' text-[#EE9B3C]'>$1000</span></p>
-                  <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>27/08/2023</span></p>
+                  <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>25/09/2023</span></p>
+                </div>
+                <div className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex'>
+                  <Link href="./DetailCampaign"  id='campaign'>Detail</Link>
                 </div>
               </div>
           </div>
@@ -92,8 +109,13 @@ function Campaign() {
                 style={{ borderRadius:"10px", objectFit:"contain"}}
              />
               <div className=' w-[95%] flex flex-col mx-[2.5%] gap-4'>
-                <div className=' w-[35%] h-8 rounded-3xl bg-[#CEE3DE] justify-center items-center flex'>
-                  <p className=' text-xs text-[#228267] font-semibold'>MEDICAL HELP</p>
+                <div className='flex gap-2'>
+                  <div className=' w-[35%] h-8 rounded-3xl bg-[#CEE3DE] justify-center items-center flex'>
+                    <p className=' text-xs text-[#228267] font-semibold'>MEDICAL HELP</p>
+                  </div>
+                  <div className=' cursor-pointer w-[15%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex'>
+                    <p className=' text-xs text-[#36bc98] font-semibold'>VOTE</p>
+                  </div>
                 </div>
                 <div className=' flex flex-col gap-4'>
                   <p className=' text-2xl font-bold'>Help Children Cancer Fighters</p>
@@ -111,7 +133,10 @@ function Campaign() {
                 </div>
                 <div className=' w-[100%] flex justify-between text-sm'>
                   <p className=' text-gray-500'>Current Fund: <span className=' text-[#EE9B3C]'>$1000</span></p>
-                  <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>27/08/2023</span></p>
+                  <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>09/12/2023</span></p>
+                </div>
+                <div className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex'>
+                  <Link href="./DetailCampaign"  id='campaign'>Detail</Link>
                 </div>
               </div>
           </div>

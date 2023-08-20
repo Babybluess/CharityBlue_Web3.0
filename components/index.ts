@@ -7,6 +7,8 @@ import News from './News'
 import Volunteer from './Volunteer'
 import Footer from './Footer'
 import Introduction from './Introduction'
+import CustomButton from './CustomButton'
+import Loader from './Loader'
 
 export {
     Navbar,
@@ -17,5 +19,7 @@ export {
     News,
     Volunteer,
     Footer,
-    Introduction
+    Introduction,
+    CustomButton,
+    Loader
 }

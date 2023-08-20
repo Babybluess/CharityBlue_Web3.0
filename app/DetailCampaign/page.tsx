@@ -7,8 +7,6 @@ function DetailCampaign() {
     const campaignID = () => {
         return ListCampaign.find((u) => u.id == 1);
       };
-      var x = document.getElementById("campaign");
-      console.log(x);
   return (
 <div className='w-full h-[100vh] bg-[#e8edee] justify-center items-center flex'>
     <div id='payment' className=' bg-white rounded-lg w-[550px] h-[600px] flex flex-col gap-5 justify-center items-center'>

@@ -1,3 +1,4 @@
+'use client'
 import React, {useState} from 'react'
 import Img from 'next/image'
 import Link from 'next/link'
@@ -12,7 +13,7 @@ function Campaign() {
           <div className=' justify-between flex w-[100%]'>
             <p className='text-base text-gray-500'>How do something great to help others</p>
             <div className='flex gap-2'>
-              <p className=' text-lg text-[#0A7558] font-semibold'><a href="">Create Campaign</a></p>
+              <p className=' text-lg text-[#0A7558] font-semibold'><a href="./CreateCampaign" >Create Campaign</a></p>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3.0" stroke="currentColor" className="w-[18px] h-[18px] text-[#0A7558] translate-y-[30%]">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
               </svg>
@@ -56,7 +57,7 @@ function Campaign() {
                   <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>27/08/2023</span></p>
                 </div>
                 <div className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex'>
-                  <Link href="./DetailCampaign" id='campaign'><option value="1">Detail</option></Link>
+                  <a href="./DetailCampaign">Detail</a>
                 </div>
               </div>
           </div>
@@ -96,7 +97,7 @@ function Campaign() {
                   <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>25/09/2023</span></p>
                 </div>
                 <div className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex'>
-                  <Link href="./DetailCampaign"  id='campaign'>Detail</Link>
+                  <Link href="./DetailCampaign" >Detail</Link>
                 </div>
               </div>
           </div>
@@ -136,7 +137,7 @@ function Campaign() {
                   <p className=' text-gray-500'>Deadline: <span className='text-[#0A7558]'>09/12/2023</span></p>
                 </div>
                 <div className=' text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex'>
-                  <Link href="./DetailCampaign"  id='campaign'>Detail</Link>
+                  <Link href="./DetailCampaign">Detail</Link>
                 </div>
               </div>
           </div>

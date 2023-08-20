@@ -5,6 +5,36 @@ import { CustomButton, Loader } from '@/components';
 function page() {
 
     const [isLoading, setIsLoading] = useState(false);
+    const confirm = () => {
+        alert("You have successfully created a new campaign");
+        window.location.href = '/';
+    }
+
+    const typeAgain = () => {
+        alert("Please type information completely")
+    }
+
+    const checkFullFill = () => {
+        const campaignTittle = document.getElementById("campaignTittle") as HTMLInputElement | null;
+        const Name = document.getElementById("name") as HTMLInputElement | null;
+        const Story = document.getElementById("story") as HTMLInputElement | null;
+        const Goal = document.getElementById("goal") as HTMLInputElement | null;
+        const Deadline = document.getElementById("deadline") as HTMLInputElement | null;
+        const Image = document.getElementById("image") as HTMLInputElement | null;
+        
+        const tittle = campaignTittle?.value
+        const name = Name?.value
+        const story = Story?.value
+        const goal = Goal?.value
+        const deadline = Deadline?.value
+        const image = Image?.value 
+
+        if(tittle  == '' || name == '' || story == '' || goal == '' || deadline == '' || image == '') {
+            typeAgain()
+        } else {
+            confirm()
+        }
+    }
   
     return (
         <div className="bg-[#1c1c24] flex justify-center items-center flex-col sm:p-10 p-4">
@@ -18,6 +48,7 @@ function page() {
                 <label className="flex-1 w-full flex flex-col">
                     <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Your Name *</span>
                     <input 
+                        id='name'
                         required
                         type="text"
                         placeholder="John Doe"
@@ -27,6 +58,7 @@ function page() {
                 <label className="flex-1 w-full flex flex-col">
                     <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Campaign Tittle *</span>
                     <input 
+                        id='tittle'
                         required
                         type="text"
                         placeholder="Write a tittle"
@@ -38,6 +70,7 @@ function page() {
             <label className="flex-1 w-full flex flex-col">
                 <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Story *</span>
                 <textarea 
+                    id='story'
                     required
                     rows={10}
                     placeholder="Write your story"
@@ -54,6 +87,7 @@ function page() {
                 <label className="flex-1 w-full flex flex-col">
                     <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Goal *</span>
                     <input 
+                        id='goal'
                         required
                         type="number"
                         step="0.1"
@@ -65,6 +99,7 @@ function page() {
                 <label className="flex-1 w-full flex flex-col">
                     <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">End Date *</span>
                     <input 
+                        id='deadline'
                         required
                         type="date"
                         className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[14px] placeholder:text-[#4b5264] rounded-[10px] sm:min-w-[300px]"
@@ -75,6 +110,7 @@ function page() {
             <label className="flex-1 w-full flex flex-col">
                 <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Campaign Image *</span>
                 <input 
+                    id='image'
                     required
                     type="url"
                     placeholder="Place image URL of your campaign"
@@ -86,6 +122,7 @@ function page() {
                 <CustomButton 
                   title="Submit new campaign"
                   styles="bg-[#1dc071]"
+                  handleClick={checkFullFill}
                 />
               </div>
           </form>

@@ -11,7 +11,7 @@ function Banner() {
                 <p className=' text-gray-400 text-sm mt-8'>CharityBlue is a digital platform for collecting donations to be distributed to people in need</p>
                 <div className = 'flex gap-5 mt-16'>
                     <div className='bg-[#0A7558] rounded-xl px-7 py-2 flex'>
-                        <Link href="./Donate" className=' text-white'>Donate Now</Link>
+                        <Link href="/#campaign" className=' text-white'>Donate Now</Link>
                     </div>
                     <div className='flex rounded-xl bg-white border-[2px] border-[#0A7558] px-5 py-2 gap-1'>
                         <Img

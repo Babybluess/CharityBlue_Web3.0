@@ -8,7 +8,7 @@ function Volunteers() {
             <span className=' font-bold text-[#F2B065]'>VOLUNTEER</span>
             <p className=' text-5xl font-bold'>Participate In Charity Around The Whole World</p>
             <p className=' text-gray-500'>Join our community volunteer and help people in need around the world.</p>
-            <button className=' w-[40%] h-10 rounded-xl bg-[#0A7558] text-white font-semibold'>Become Voluneer</button>
+            <button className=' w-[40%] h-10 rounded-xl bg-[#0A7558] text-white font-semibold'><a href="./VolunteerMember" >Become Voluneer</a></button>
           </div>
           <div className=' w-[50%] h-[100%] justify-center items-center flex relative'>
               <div className=' w-[450px] h-[450px] bg-[#EEEEEE] rounded-lg rounded-br-[60%]'></div>

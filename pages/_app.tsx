@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import '../public/scss/ReactToastify.scss';
+import '../public/css/loading.css';
 import '../public/css/globals.css';
 import '../public/css/local.css';
 import { wrapper } from '../redux/stores/configureStore';
@@ -28,7 +30,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }: AppProps) => {
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<link rel="icon" href="../images/favicon.ico" />
 			</Head>
-			<Component {...pageProps} />;
+			<Component {...pageProps} />
 		</>
 	);
 };

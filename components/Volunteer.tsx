@@ -18,7 +18,7 @@ function Volunteers() {
 			<div className=" w-[50%] h-[100%] justify-center items-center flex relative">
 				<div className=" w-[450px] h-[450px] bg-[#EEEEEE] rounded-lg rounded-br-[60%]"></div>
 				<Img
-					src="/vlun.png"
+					src="/images/vlun.png"
 					alt=""
 					width={1000}
 					height={1000}
@@ -27,7 +27,7 @@ function Volunteers() {
 				/>
 				<div className=" absolute w-[150px] h-[150px] rounded-xl top-[5%] left-[15%]">
 					<Img
-						src="/volunteerSlogna.jpg"
+						src="/images/volunteerSlogna.jpg"
 						alt=""
 						layout="fill"
 						objectFit="cover"
@@ -36,7 +36,7 @@ function Volunteers() {
 				</div>
 				<div className=" absolute w-[150px] h-[150px] rounded-xl top-[30%] right-[25%]">
 					<Img
-						src="/volunteerSlogna1.jpg"
+						src="/images/volunteerSlogna1.jpg"
 						alt=""
 						layout="fill"
 						objectFit="cover"
@@ -45,7 +45,7 @@ function Volunteers() {
 				</div>
 				<div className=" absolute w-[100px] h-[100px] rounded-xl bottom-[10%] left-[35%]">
 					<Img
-						src="/volunteerSlogna2.jpg"
+						src="/images/volunteerSlogna2.jpg"
 						alt=""
 						layout="fill"
 						objectFit="cover"

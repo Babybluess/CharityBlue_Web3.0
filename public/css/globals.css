@@ -29,3 +29,56 @@ html {
 a {
 	cursor: pointer;
 }
+
+.wrapp-loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 1056;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapp-loading.la-ball-scale-pulse {
+	color: #157534;
+}
+
+.Toastify__toast {
+	position: relative;
+	min-height: 45px;
+	overflow: initial;
+	font-size: 14px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 10px;
+	color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+	backdrop-filter: blur(10px);
+
+	&-container {
+		z-index: 2147483648;
+	}
+
+	&--warning {
+		background: rgba(187, 93, 7, 0.45);
+	}
+	&--error {
+		background: rgba(239, 53, 53, 0.45);
+	}
+	&--success {
+		background: rgba(135, 200, 96, 0.45);
+	}
+}
+
+.Toastify__close-button {
+	display: none;
+}
+
+.Toastify__toast-body {
+	a {
+		color: #000;
+	}
+}

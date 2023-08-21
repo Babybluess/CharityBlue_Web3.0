@@ -36,7 +36,7 @@ function Campaign() {
 			<div className=" w-[90%] grid grid-cols-3 absolute top-[25%] left-[5%] justify-items-center">
 				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3">
 					<Img
-						src="/emergency.avif"
+						src="/images/emergency.avif"
 						alt=""
 						width={400}
 						height={240}
@@ -84,14 +84,16 @@ function Campaign() {
 								Deadline: <span className="text-[#0A7558]">27/08/2023</span>
 							</p>
 						</div>
-						<div className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							<Link href="/campaign/1">Detail</Link>
-						</div>
+						<Link
+							href="/campaign/1"
+							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
+							Detail
+						</Link>
 					</div>
 				</div>
 				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3">
 					<Img
-						src="/educationCampaign.jpg"
+						src="/images/educationCampaign.jpg"
 						alt=""
 						width={500}
 						height={265}
@@ -137,14 +139,16 @@ function Campaign() {
 								Deadline: <span className="text-[#0A7558]">25/09/2023</span>
 							</p>
 						</div>
-						<div className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							<Link href="/campaign/2">Detail</Link>
-						</div>
+						<Link
+							href="/campaign/2"
+							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
+							Detail
+						</Link>
 					</div>
 				</div>
 				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3">
 					<Img
-						src="/cancer.avif"
+						src="/images/cancer.avif"
 						alt=""
 						width={500}
 						height={265}
@@ -190,9 +194,11 @@ function Campaign() {
 								Deadline: <span className="text-[#0A7558]">09/12/2023</span>
 							</p>
 						</div>
-						<div className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							<Link href="/campaign/3">Detail</Link>
-						</div>
+						<Link
+							href="/campaign/3"
+							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
+							Detail
+						</Link>
 					</div>
 				</div>
 			</div>

@@ -36,7 +36,7 @@ function News() {
 			<div className=" w-[90%] grid grid-cols-4 justify-items-center">
 				<div className=" w-[300px] h-[400px] rounded-xl flex flex-col gap-3">
 					<Img
-						src="/covid19.avif"
+						src="/images/covid19.avif"
 						alt=""
 						width={400}
 						height={240}
@@ -79,7 +79,7 @@ function News() {
 				</div>
 				<div className=" w-[300px] h-[400px] rounded-xl flex flex-col gap-3">
 					<Img
-						src="/cianjur.avif"
+						src="/images/cianjur.avif"
 						alt=""
 						width={400}
 						height={240}
@@ -122,7 +122,7 @@ function News() {
 				</div>
 				<div className=" w-[300px] h-[400px] rounded-xl flex flex-col gap-3">
 					<Img
-						src="/tetanus.avif"
+						src="/images/tetanus.avif"
 						alt=""
 						width={400}
 						height={240}
@@ -165,7 +165,7 @@ function News() {
 				</div>
 				<div className=" w-[300px] h-[400px] rounded-xl flex flex-col gap-3">
 					<Img
-						src="/diabetes.avif"
+						src="/images/diabetes.avif"
 						alt=""
 						width={400}
 						height={240}

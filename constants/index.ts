@@ -20,3 +20,8 @@ export const ListCampaign = [
 ];
 
 export const gasPrice = 20;
+export const MESSAGE = {
+	connectWallet: 'Connect wallet successfully!',
+	networkError: 'Network error!',
+	errorExtension: 'Please install Metamask Extension!'
+};

@@ -19,7 +19,7 @@ function Banner() {
 							</Link>
 						</div>
 						<div className="flex rounded-xl bg-white border-[2px] border-[#0A7558] px-5 py-2 gap-1">
-							<Img src="/play.png" alt="play" height={10} width={20} />
+							<Img src="/images/play.png" alt="play" height={10} width={20} />
 							<Link to="introduction" className="text-[#0A7558]">
 								Watch Video
 							</Link>
@@ -42,37 +42,37 @@ function Banner() {
 				</div>
 			</div>
 			<div className=" w-[60%] h-[100%] absolute right-0 top-0 ">
-				<Img src="/dotx.gif" alt="dotMoving" height={400} width={860} />
+				<Img src="/images/dotx.gif" alt="dotMoving" height={400} width={860} />
 				<Img
-					src="/banner1.jpg"
+					src="/images/banner1.jpg"
 					alt=""
 					height={200}
 					width={200}
 					className="rounded-[20%] absolute top-40 right-24 shadow-2xl z-10"
 				/>
 				<Img
-					src="/banner2.jpg"
+					src="/images/banner2.jpg"
 					alt=""
 					height={200}
 					width={200}
 					className=" rounded-bl-[50%] absolute right-48 bottom-20 rounded-xl shadow-2xl z-10"
 				/>
 				<Img
-					src="/banner3.jpg"
+					src="/images/banner3.jpg"
 					alt=""
 					height={170}
 					width={170}
 					className="rounded-br-[60px] rounded-2xl  absolute top-20 left-[300px] shadow-xl z-10"
 				/>
 				<Img
-					src="/banner4.jpg"
+					src="/images/banner4.jpg"
 					alt=""
 					height={150}
 					width={150}
 					className="rounded-[50%] absolute left-52 bottom-32 shadow-xl z-10"
 				/>
 				<Img
-					src="/bannerCenter.png"
+					src="/images/bannerCenter.png"
 					alt=""
 					height={100}
 					width={100}

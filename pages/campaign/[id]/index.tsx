@@ -1,7 +1,6 @@
 'use client';
-import React, { useState } from 'react';
-import Img from 'next/image';
 import { ListCampaign } from '@/constants';
+import Img from 'next/image';
 
 function DetailCampaign() {
 	const campaignID = () => {

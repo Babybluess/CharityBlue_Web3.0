@@ -13,7 +13,7 @@ function Campaign() {
 				</p>
 				<div className=" justify-between flex w-[100%]">
 					<p className="text-base text-gray-500">How do something great to help others</p>
-					<div className="flex gap-2">
+					{/* <div className="flex gap-2">
 						<p className=" text-lg text-[#0A7558] font-semibold">
 							<a href="./CreateCampaign">Create Campaign</a>
 						</p>
@@ -30,7 +30,7 @@ function Campaign() {
 								d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
 							/>
 						</svg>
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<div className=" w-[90%] grid grid-cols-3 absolute top-[25%] left-[5%] justify-items-center">
@@ -85,7 +85,7 @@ function Campaign() {
 							</p>
 						</div>
 						<div className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							<a href="./DetailCampaign">Detail</a>
+							<Link href="/campaign/1">Detail</Link>
 						</div>
 					</div>
 				</div>
@@ -138,7 +138,7 @@ function Campaign() {
 							</p>
 						</div>
 						<div className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							<Link href="./DetailCampaign">Detail</Link>
+							<Link href="/campaign/2">Detail</Link>
 						</div>
 					</div>
 				</div>
@@ -191,7 +191,7 @@ function Campaign() {
 							</p>
 						</div>
 						<div className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							<Link href="./DetailCampaign">Detail</Link>
+							<Link href="/campaign/3">Detail</Link>
 						</div>
 					</div>
 				</div>

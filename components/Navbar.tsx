@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
 import Img from 'next/image';
-import Link from 'next/link';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
 	return (
@@ -19,37 +18,38 @@ const Navbar = () => {
 			</div>
 			<div className="flex gap-10 text-base items-center">
 				<Link
-					href="/#home"
+					to="home"
+					spy={true}
 					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]">
 					Home
 				</Link>
 				<Link
-					href="/#about"
+					to="about"
 					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]">
 					About Us
 				</Link>
 				<Link
-					href="/#categories"
+					to="categories"
 					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]">
 					Categories
 				</Link>
 				<Link
-					href="/#campaign"
+					to="campaign"
 					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]">
 					Campaign
 				</Link>
 				<Link
-					href="/#news"
+					to="news"
 					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]">
 					News
 				</Link>
 				<Link
-					href="/#volunteers"
+					to="volunteers"
 					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]">
 					Volunteers
 				</Link>
 				<div className=" flex w-[90px] items-center bg-[#0A7558] rounded-full justify-center">
-					<Link href="/#campaign" className="text-sm p-1 text-white">
+					<Link to="campaign" className="text-sm p-1 text-white">
 						Donate
 					</Link>
 					<svg

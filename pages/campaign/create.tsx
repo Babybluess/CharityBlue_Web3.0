@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
 import { CustomButton, Loader } from '@/components';
+import { useState } from 'react';
 
 function page() {
 	const [isLoading, setIsLoading] = useState(false);

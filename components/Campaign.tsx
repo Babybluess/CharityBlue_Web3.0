@@ -15,7 +15,7 @@ function Campaign() {
 					<p className="text-base text-gray-500">How do something great to help others</p>
 					{/* <div className="flex gap-2">
 						<p className=" text-lg text-[#0A7558] font-semibold">
-							<a href="./CreateCampaign">Create Campaign</a>
+							<a href="/campaign/create">Create Campaign</a>
 						</p>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

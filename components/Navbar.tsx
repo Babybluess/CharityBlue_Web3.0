@@ -8,7 +8,7 @@ const Navbar = () => {
 		<div className=" w-[95vw] h-[50px] bg-gradient-to-r from-[#FBE7D0] to-[#D4E4DC] rounded-t-lg flex justify-between px-4">
 			<div className="flex gap-2 items-center">
 				<Img
-					src="/Logo_Image.png"
+					src="/images/Logo_Image.png"
 					alt="logo"
 					width={30}
 					height={30}

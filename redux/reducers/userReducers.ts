@@ -1,13 +1,10 @@
 import * as types from '../types';
 
-interface InitialState {
-	binanceChain: object;
-	address: string;
-}
-
-const initialState: InitialState = {
+const initialState: types.userTypes.UserState = {
 	binanceChain: {},
-	address: ''
+	address: '',
+	isBinanceChain: false,
+	chainId: ''
 };
 
 export default function userReducer(

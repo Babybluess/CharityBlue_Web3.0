@@ -4,6 +4,8 @@ export const UPDATE_DATA_USER_SUCCESS = 'UPDATE_DATA_USER_SUCCESS';
 export interface UserState {
 	binanceChain: object;
 	address: string;
+	isBinanceChain: boolean;
+	chainId: string | number;
 }
 
 export interface UpdateDataUser {

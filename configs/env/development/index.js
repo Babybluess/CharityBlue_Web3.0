@@ -6,7 +6,7 @@ export default {
 	linkBscScan: 'https://sepolia.etherscan.io',
 	chainId: ['0xaa36a7', '11155111', 11155111],
 	nameChain: 'Sepolia Testnet',
-	linkRPC: 'https://api.zan.top/node/v1/eth/sepolia/public	',
+	linkRPC: 'https://ethereum-sepolia.blockpi.network/v1/rpc/public',
 	symbol: 'ETH',
 	contracts: {
 		crowdfunding: {

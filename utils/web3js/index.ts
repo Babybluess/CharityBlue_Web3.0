@@ -14,7 +14,7 @@ const convertWeiBigNumberToNumber = (value: number) => {
 		return parseFloat(toWeiNumber);
 	}
 
-	return null;
+	return 0;
 };
 
 const timeOut = async (period = 1000) => {

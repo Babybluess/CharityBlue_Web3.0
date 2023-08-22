@@ -85,7 +85,7 @@ function Campaign() {
 							</p>
 						</div>
 						<Link
-							href="/campaign/1"
+							href="/campaign/0"
 							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
 							Detail
 						</Link>
@@ -140,7 +140,7 @@ function Campaign() {
 							</p>
 						</div>
 						<Link
-							href="/campaign/2"
+							href="/campaign/1"
 							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
 							Detail
 						</Link>
@@ -195,7 +195,7 @@ function Campaign() {
 							</p>
 						</div>
 						<Link
-							href="/campaign/3"
+							href="/campaign/2"
 							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
 							Detail
 						</Link>

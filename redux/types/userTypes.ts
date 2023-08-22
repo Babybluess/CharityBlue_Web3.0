@@ -2,7 +2,7 @@ export const UPDATE_DATA_USER = 'UPDATE_DATA_USER';
 export const UPDATE_DATA_USER_SUCCESS = 'UPDATE_DATA_USER_SUCCESS';
 
 export interface UserState {
-	binanceChain: object;
+	binanceChain: object | any;
 	address: string;
 	isBinanceChain: boolean;
 	chainId: string | number;

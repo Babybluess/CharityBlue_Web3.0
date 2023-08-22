@@ -8,6 +8,11 @@ import { RootState } from '../redux/reducers/index';
 import * as types from '../redux/types';
 import Loading from './Loading';
 
+declare global {
+	interface Window {
+		ethereum: any;
+	}
+}
 export interface LayoutProps {
 	children: React.ReactNode;
 }

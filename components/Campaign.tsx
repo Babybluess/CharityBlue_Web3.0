@@ -1,9 +1,75 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Img from 'next/image';
 import Link from 'next/link';
+import { customNumber } from '@/utils/common';
+import { RootState } from './../redux/reducers/index';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import moment from 'moment';
+import configs from '../configs';
+import { getBalanceETH } from './../hooks/index';
+import Web3 from 'web3';
+import {
+	convertNumberToWei,
+	convertWeiBigNumberToNumber,
+	numberToGweiHex
+} from '../utils/web3js';
 
 function Campaign() {
+	const { address } = useSelector((state: RootState) => state.userReducers);
+	const [name, setName] = useState('-');
+	const [vote, setVote] = useState(0);
+	const [goal, setGoal] = useState(0);
+	const [deadline, setDeadline] = useState(0);
+	const [totalContributions, setTotalContributions] = useState(0);
+	const [isFunded, setIsFunded] = useState(false);
+	const [balance, setBalance] = useState(0);
+	const router = useRouter();
+	const { id } = router.query;
+
+	useEffect(() => {
+		if (address) {
+			getBalanceUser(address);
+		}
+	}, [address]);
+
+	useEffect(() => {
+		getInfoCampaign(id);
+	}, []);
+
+
+	const getInfoCampaign = async (id: string | string[] | undefined) => {
+		const web3 = new Web3(configs.linkRPC);
+		const { crowdfunding } = configs.contracts;
+
+		const crowdfundingContract = new web3.eth.Contract(crowdfunding.abi, crowdfunding.address);
+
+		try {
+			let data = await crowdfundingContract.methods.getCampaignDetails(id).call();
+
+			console.log({ data });
+			const { name, deadline, totalUsersVote, totalVotesApprove, isFunded } = data;
+			const vote = parseInt(totalUsersVote) === 0 ? 0 : totalVotesApprove / totalUsersVote;
+			const goalTarget = convertWeiBigNumberToNumber(data.goal);
+			const total = convertWeiBigNumberToNumber(data.totalContributions);
+
+			setName(name);
+			setVote(vote);
+			setDeadline(deadline);
+			setGoal(goalTarget);
+			setIsFunded(isFunded);
+			setTotalContributions(total);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const getBalanceUser = async (address: string) => {
+		const balanceUser: number = await getBalanceETH(address);
+
+		setBalance(balanceUser);
+	};
 	return (
 		<div className=" w-[95vw] h-[100%] relative" id="campaign">
 			<div className=" bg-[#FEFAF6] w-[100%] h-[100%] opacity-90"></div>
@@ -73,19 +139,19 @@ function Campaign() {
 								Raised: <span className=" text-[#EE9B3C]">$1250</span>
 							</p>
 							<p className=" text-gray-500">
-								Goal: <span className="text-[#0A7558]">$2500</span>
+								Goal: <span className="text-[#0A7558]">3 ETH</span>
 							</p>
 						</div>
 						<div className=" w-[100%] flex justify-between text-sm">
 							<p className=" text-gray-500">
-								Current Fund: <span className=" text-[#EE9B3C]">$1000</span>
+								Current Fund: <span className=" text-[#EE9B3C]">{customNumber(totalContributions, 4)} ETH</span>
 							</p>
 							<p className=" text-gray-500">
-								Deadline: <span className="text-[#0A7558]">27/08/2023</span>
+								Deadline: <span className="text-[#0A7558]">08/12/2023</span>
 							</p>
 						</div>
 						<Link
-							href="/campaign/0"
+							href="/campaign/1"
 							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
 							Detail
 						</Link>
@@ -128,19 +194,19 @@ function Campaign() {
 								Raised: <span className=" text-[#EE9B3C]">$2450</span>
 							</p>
 							<p className=" text-gray-500">
-								Goal: <span className="text-[#0A7558]">$3500</span>
+								Goal: <span className="text-[#0A7558]">50 ETH</span>
 							</p>
 						</div>
 						<div className=" w-[100%] flex justify-between text-sm">
 							<p className=" text-gray-500">
-								Current Fund: <span className=" text-[#EE9B3C]">$1000</span>
+								Current Fund: <span className=" text-[#EE9B3C]">{customNumber(totalContributions, 4)} ETH</span>
 							</p>
 							<p className=" text-gray-500">
-								Deadline: <span className="text-[#0A7558]">25/09/2023</span>
+								Deadline: <span className="text-[#0A7558]">09/12/2023</span>
 							</p>
 						</div>
 						<Link
-							href="/campaign/1"
+							href="/campaign/3"
 							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
 							Detail
 						</Link>
@@ -183,15 +249,15 @@ function Campaign() {
 								Raised: <span className=" text-[#EE9B3C]">$4050</span>
 							</p>
 							<p className=" text-gray-500">
-								Goal: <span className="text-[#0A7558]">$4500</span>
+								Goal: <span className="text-[#0A7558]">10 ETH</span>
 							</p>
 						</div>
 						<div className=" w-[100%] flex justify-between text-sm">
 							<p className=" text-gray-500">
-								Current Fund: <span className=" text-[#EE9B3C]">$1000</span>
+								Current Fund: <span className=" text-[#EE9B3C]">{customNumber(totalContributions, 4)} ETH</span>
 							</p>
 							<p className=" text-gray-500">
-								Deadline: <span className="text-[#0A7558]">09/12/2023</span>
+								Deadline: <span className="text-[#0A7558]">08/12/2023</span>
 							</p>
 						</div>
 						<Link

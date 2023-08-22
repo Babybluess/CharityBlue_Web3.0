@@ -398,60 +398,89 @@ function DetailCampaign() {
 		setAmount({ value: value, error: false });
 	};
 
+	const [isApprove, setApprove] = useState(false);
+	const [isReject, setReject] = useState(false);
+
+	const clickApprove = () => {
+		setApprove(true)
+		setReject(false)
+	}
+	const clickReject = () => {
+		setApprove(false)
+		setReject(true)
+
+	}
+
 	return (
 		<Layout>
 			<div className="w-full h-[100vh] bg-[#e8edee] justify-center items-center flex">
 				<div
 					id="payment"
-					className=" bg-white rounded-lg w-[550px] h-[600px] flex flex-col gap-5 justify-center items-center">
+					className=" bg-white rounded-lg w-[550px] h-[600px] flex flex-col gap-3 justify-center items-center">
 					<p className=" text-center font-semibold">You're donating to</p>
 					<Img src="/images/Logo_Image.png" alt="" width={100} height={100} />
-					<p className="text-5xl font-bold text-[#9CC5A0]">Charity Blue</p>
-					<div className=" justify-start flex flex-col gap-3">
-						<div className="flex justify-between">
-							<div className="flex gap-1 items-center">
-								<label className="font-semibold text-xl">Name:</label>
-								<p className="">{name}</p>
+					<p className="text-5xl font-bold text-[#9CC5A0] mb-5">Charity Blue</p>
+					<div className=" w-[85%] justify-start items-start flex flex-col gap-3">
+						<div className='w-[100%] justify-center items-center flex'>
+							<div className=' justify-center flex items-center rounded-2xl border-2 border-gray-400 ' >
+								<label onClick={() => clickApprove()} className={` ${isApprove == true ? 'bg-[#414181]' : 'bg-white'} cursor-pointer flex gap-1 rounded-l-[15px] border-r-2 border-gray-400 px-3 items-center justify-center `}>
+									<input type="radio" name="radio" />
+									<span className='text-lg text-green-400'>Approve</span>
+								</label>
+								<label onClick={() => clickReject()} className={` ${isReject == true ? 'bg-[#414181]' : 'bg-white'} cursor-pointer flex gap-1 rounded-r-[15px] px-4 items-center justify-center `}>
+									<input type="radio" name="radio" />
+									<span className='text-lg text-pink-400'>Reject</span>
+								</label>
 							</div>
 						</div>
 						<div className="flex justify-between">
 							<div className="flex gap-1 items-center">
-								<label className="font-semibold text-xl">Goal:</label>
-								<p className="">{goal} ETH</p>
+								<label className="font-bold text-xl">Name:</label>
+								<p className=" text-xl">{name}</p>
 							</div>
 						</div>
 						<div className="flex justify-between">
 							<div className="flex gap-1 items-center">
-								<label className="font-semibold text-xl">
+								<label className="font-bold text-xl">
 									Total Contributions:
 								</label>
-								<p className="">{customNumber(totalContributions, 4)} ETH</p>
+								<p className=" text-xl">{customNumber(totalContributions, 4)} ETH</p>
 							</div>
 						</div>
-						<div className="flex justify-between">
-							<div className="flex gap-1 items-center">
-								<label className="font-semibold text-xl">Deadline:</label>
-								<p className="">
-									{deadline === 0
-										? '-'
-										: moment(deadline * 1000).format('MM/DD/YYYY')}
-								</p>
+						<div className='flex justify-between w-[100%]'>
+							<div className="flex justify-between">
+								<div className="flex gap-1 items-center">
+									<label className="font-bold text-xl">Deadline:</label>
+									<p className=" text-xl">
+										{deadline === 0
+											? '-'
+											: moment(deadline * 1005).format('DD/MM/YYYY')}
+									</p>
+								</div>
+							</div>
+							<div className="flex justify-between">
+								<div className="flex gap-1 items-center">
+									<label className="font-bold text-xl">Your Balance:</label>
+									<p className=" text-xl">{customNumber(balance)} ETH</p>
+								</div>
 							</div>
 						</div>
-						<div className="flex justify-between">
-							<div className="flex gap-1 items-center">
-								<label className="font-semibold text-xl">Vote:</label>
-								<p>{customNumber(vote)}%</p>
+						<div className=' flex justify-between w-[100%]'>
+							<div className="flex justify-between">
+								<div className="flex gap-1 items-center">
+									<label className="font-bold text-xl">Goal:</label>
+									<p className=" text-xl">{goal} ETH</p>
+								</div>
 							</div>
-						</div>
-						<div className="flex justify-between">
-							<div className="flex gap-1 items-center">
-								<label className="font-semibold text-xl">Your Balance:</label>
-								<p>{customNumber(balance)} ETH</p>
+							<div className="flex justify-between">
+								<div className="flex gap-2 items-center">
+									<label className="font-bold text-xl">Vote:</label>
+									<p className=" text-xl">{customNumber(vote)}%</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div className="h-[10%] w-[70%] flex border-2 rounded-lg">
+					<div className="h-[10%] w-[85%] flex border-2 rounded-lg">
 						<Cleave
 							options={{
 								numeral: true,
@@ -460,10 +489,10 @@ function DetailCampaign() {
 							}}
 							type="tel"
 							className={
-								'rounded-lg required font-bold px-5 w-full ' +
+								'rounded-lg required font-semibold px-5 w-full ' +
 								(amount.error ? 'has-error' : '')
 							}
-							placeholder="Donate"
+							placeholder="Enter the amount"
 							value={amount.value}
 							onChange={handleChangeAmount}
 						/>

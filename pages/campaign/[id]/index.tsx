@@ -53,7 +53,7 @@ function DetailCampaign() {
 		getInfoCampaign(id);
 	}, []);
 
-	const getInfoCampaign = async (id: string | string[] | undefined) => {
+	 const getInfoCampaign = async (id: string | string[] | undefined) => {
 		const web3 = new Web3(configs.linkRPC);
 		const { crowdfunding } = configs.contracts;
 
@@ -407,7 +407,7 @@ function DetailCampaign() {
 					className=" bg-white rounded-lg w-[550px] h-[600px] flex flex-col gap-3 relative justify-center border-2 border-gray-400 z-50 items-center">
 					<p className=" text-center font-semibold ">You're donating to</p>
 					<div className=' absolute top-5 right-5 w-[50px] h-[32px] rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white flex justify-center items-center font-semibold'>
-						<Link href="/campaign/3/votebutton">Vote</Link>	
+						<Link href={`/campaign/${id}/votebutton`}>Vote</Link>	
 					</div>
 					<Img src="/images/Logo_Image.png" alt="" width={100} height={100} />
 					<p className="text-5xl font-bold text-[#9CC5A0] mb-5">Charity Blue</p>

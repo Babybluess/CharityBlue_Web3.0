@@ -10,6 +10,7 @@ import React, { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
+import Link from 'next/link';
 import Web3 from 'web3';
 import Layout from '../../../components/Layout';
 import configs from '../../../configs';
@@ -398,41 +399,20 @@ function DetailCampaign() {
 		setAmount({ value: value, error: false });
 	};
 
-	const [isApprove, setApprove] = useState(false);
-	const [isReject, setReject] = useState(false);
-
-	const clickApprove = () => {
-		setApprove(true)
-		setReject(false)
-	}
-	const clickReject = () => {
-		setApprove(false)
-		setReject(true)
-
-	}
-
 	return (
 		<Layout>
-			<div className="w-full h-[100vh] bg-[#e8edee] justify-center items-center flex">
+			<div className="w-full h-[100vh] bg-[#FFFBFF] relative justify-center items-center flex">
 				<div
 					id="payment"
-					className=" bg-white rounded-lg w-[550px] h-[600px] flex flex-col gap-3 justify-center items-center">
-					<p className=" text-center font-semibold">You're donating to</p>
+					className=" bg-white rounded-lg w-[550px] h-[600px] flex flex-col gap-3 relative justify-center border-2 border-gray-400 z-50 items-center">
+					<p className=" text-center font-semibold ">You're donating to</p>
+					<div className=' absolute top-5 right-5 w-[50px] h-[32px] rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white flex justify-center items-center font-semibold'>
+						<Link href="/campaign/3/votebutton">Vote</Link>	
+					</div>
 					<Img src="/images/Logo_Image.png" alt="" width={100} height={100} />
 					<p className="text-5xl font-bold text-[#9CC5A0] mb-5">Charity Blue</p>
-					<div className=" w-[85%] justify-start items-start flex flex-col gap-3">
-						<div className='w-[100%] justify-center items-center flex'>
-							<div className=' justify-center flex items-center rounded-2xl border-2 border-gray-400 ' >
-								<label onClick={() => clickApprove()} className={` ${isApprove == true ? 'bg-[#414181]' : 'bg-white'} cursor-pointer flex gap-1 rounded-l-[15px] border-r-2 border-gray-400 px-3 items-center justify-center `}>
-									<input type="radio" name="radio" />
-									<span className='text-lg text-green-400'>Approve</span>
-								</label>
-								<label onClick={() => clickReject()} className={` ${isReject == true ? 'bg-[#414181]' : 'bg-white'} cursor-pointer flex gap-1 rounded-r-[15px] px-4 items-center justify-center `}>
-									<input type="radio" name="radio" />
-									<span className='text-lg text-pink-400'>Reject</span>
-								</label>
-							</div>
-						</div>
+					<div className=" w-[85%] justify-start items-start flex flex-col gap-3 pb-5">
+						
 						<div className="flex justify-between">
 							<div className="flex gap-1 items-center">
 								<label className="font-bold text-xl">Name:</label>
@@ -480,7 +460,7 @@ function DetailCampaign() {
 							</div>
 						</div>
 					</div>
-					<div className="h-[10%] w-[85%] flex border-2 rounded-lg">
+					<div className="h-[10%] w-[85%] flex border-2 rounded-lg mb-2">
 						<Cleave
 							options={{
 								numeral: true,
@@ -498,6 +478,14 @@ function DetailCampaign() {
 						/>
 					</div>
 					{renderButton()}
+				</div>
+				<div className=' absolute bottom-0 left-0'>
+					<Img 
+					src={"/images/jiji cat gif.gif"}
+					alt=''
+					width={500}
+					height={200}
+					/>
 				</div>
 			</div>
 		</Layout>

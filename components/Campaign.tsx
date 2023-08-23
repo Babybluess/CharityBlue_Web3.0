@@ -70,8 +70,9 @@ function Campaign() {
 
 		setBalance(balanceUser);
 	};
+	console.log(getInfoCampaign("1"))
 	return (
-		<div className=" w-[95vw] h-[100%] relative" id="campaign">
+		<div className=" w-[95vw] h-[100%] relative" id="campaign" >
 			<div className=" bg-[#FEFAF6] w-[100%] h-[100%] opacity-90"></div>
 			<div className=" w-[84%] justify-center items-center flex flex-col gap-4 absolute top-[5%] left-[8%]">
 				<p className=" text-5xl font-bold justify-items-start w-[100%]">
@@ -100,7 +101,7 @@ function Campaign() {
 				</div>
 			</div>
 			<div className=" w-[90%] grid grid-cols-3 absolute top-[25%] left-[5%] justify-items-center">
-				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3">
+				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3 " onChange={()=> getInfoCampaign("1")}>
 					<Img
 						src="/images/emergency.avif"
 						alt=""
@@ -120,8 +121,8 @@ function Campaign() {
 							</div>
 						</div>
 						<div className=" flex flex-col gap-4">
-							<p className=" text-2xl font-bold">
-								Help Donate For Cianjur Earthquake Victims
+							<p className=" text-2xl font-bold" >
+								{name}
 							</p>
 							<p className=" text-sm text-gray-500">
 								Help Donate for Cianjur Earthquake Victims by providing food,
@@ -130,24 +131,26 @@ function Campaign() {
 						</div>
 						<div className=" flex gap-2">
 							<div className=" w-[90%] h-[14px] rounded-r-full rounded-l-full bg-[#EDEDED] flex flex-row">
-								<div className=" w-[50%] bg-[#EE9B3C] rounded-r-full rounded-l-full"></div>
+								<div className={` w-[${customNumber(vote)}%] bg-[#EE9B3C] rounded-r-full rounded-l-full`}></div>
 							</div>
-							<span className=" text-xs">50%</span>
+							<span className=" text-xs">{customNumber(vote)}%</span>
 						</div>
 						<div className=" w-[100%] flex justify-between text-sm">
-							<p className=" text-gray-500">
+							<p className=" text-gray-500" >
 								Raised: <span className=" text-[#EE9B3C]">$1250</span>
 							</p>
 							<p className=" text-gray-500">
-								Goal: <span className="text-[#0A7558]">3 ETH</span>
+								Goal: <span className="text-[#0A7558]">{goal} ETH</span>
 							</p>
 						</div>
 						<div className=" w-[100%] flex justify-between text-sm">
 							<p className=" text-gray-500">
-								Current Fund: <span className=" text-[#EE9B3C]">{customNumber(totalContributions, 4)} ETH</span>
+								Current Fund: <span className=" text-[#EE9B3C]" >{totalContributions} ETH</span>
 							</p>
 							<p className=" text-gray-500">
-								Deadline: <span className="text-[#0A7558]">08/12/2023</span>
+								Deadline: <span className="text-[#0A7558]">{deadline === 0
+											? '-'
+											: moment(deadline * 1005).format('DD/MM/YYYY')}</span>
 							</p>
 						</div>
 						<Link
@@ -157,7 +160,7 @@ function Campaign() {
 						</Link>
 					</div>
 				</div>
-				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3">
+				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3" onChange={() => getInfoCampaign("3")}>
 					<Img
 						src="/images/educationCampaign.jpg"
 						alt=""
@@ -175,7 +178,7 @@ function Campaign() {
 							</div>
 						</div>
 						<div className=" flex flex-col gap-4">
-							<p className=" text-2xl font-bold">
+							<p className=" text-2xl font-bold" >
 								Campaign To Provide Books For Children
 							</p>
 							<p className=" text-sm text-gray-500">
@@ -212,7 +215,7 @@ function Campaign() {
 						</Link>
 					</div>
 				</div>
-				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3">
+				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3" onChange={() => getInfoCampaign("2")}>
 					<Img
 						src="/images/cancer.avif"
 						alt=""

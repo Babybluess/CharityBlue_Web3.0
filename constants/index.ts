@@ -3,7 +3,11 @@ export const MESSAGE = {
 	connectWallet: 'Connect wallet successfully!',
 	networkError: 'Network error!',
 	errorExtension: 'Please install Metamask Extension!',
-	contributionSuccess: 'Contribution successfully'
+	contributionSuccess: 'Contribution successfully!',
+	pleaseContribution: 'Please contribute before voting!',
+	pleaseConnectWallet: 'Please connect wallet!',
+	voted: 'You voted for this project!',
+	voteSuccess: 'Vote successfully!'
 };
 
 export const listCampaign = [

@@ -5,12 +5,12 @@ import Cleave from 'cleave.js/react';
 import { ethers } from 'ethers';
 import moment from 'moment';
 import Img from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import Link from 'next/link';
 import Web3 from 'web3';
 import Layout from '../../../components/Layout';
 import configs from '../../../configs';
@@ -39,7 +39,7 @@ function DetailCampaign() {
 	const [goal, setGoal] = useState(0);
 	const [deadline, setDeadline] = useState(0);
 	const [totalContributions, setTotalContributions] = useState(0);
-	const [isFunded, setIsFunded] = useState(false);
+	const [isCompleted, setIsCompleted] = useState(false);
 	const router = useRouter();
 	const { id } = router.query;
 
@@ -53,7 +53,7 @@ function DetailCampaign() {
 		getInfoCampaign(id);
 	}, []);
 
-	 const getInfoCampaign = async (id: string | string[] | undefined) => {
+	const getInfoCampaign = async (id: string | string[] | undefined) => {
 		const web3 = new Web3(configs.linkRPC);
 		const { crowdfunding } = configs.contracts;
 
@@ -62,17 +62,17 @@ function DetailCampaign() {
 		try {
 			let data = await crowdfundingContract.methods.getCampaignDetails(id).call();
 
-			console.log({ data });
-			const { name, deadline, totalUsersVote, totalVotesApprove, isFunded } = data;
-			const vote = parseInt(totalUsersVote) === 0 ? 0 : totalVotesApprove / totalUsersVote;
+			const { name, deadline, isCompleted } = data;
+			const totalVotesApprove = convertWeiBigNumberToNumber(data.totalVotesApprove);
 			const goalTarget = convertWeiBigNumberToNumber(data.goal);
 			const total = convertWeiBigNumberToNumber(data.totalContributions);
+			const vote = totalVotesApprove === 0 ? 0 : (totalVotesApprove / total) * 100;
 
 			setName(name);
 			setVote(vote);
 			setDeadline(deadline);
 			setGoal(goalTarget);
-			setIsFunded(isFunded);
+			setIsCompleted(isCompleted);
 			setTotalContributions(total);
 		} catch (error) {
 			console.log(error);
@@ -306,8 +306,8 @@ function DetailCampaign() {
 	const handleDonate = () => {
 		const { crowdfunding } = configs.contracts;
 
-		if (isFunded) {
-			toast.error('Funded!');
+		if (isCompleted) {
+			toast.error('Completed!');
 			return;
 		}
 
@@ -349,7 +349,6 @@ function DetailCampaign() {
 				let timerId = setInterval(async () => {
 					await web3.eth.getTransactionReceipt(transactionHash).then((e) => {
 						if (e) {
-							console.log(e);
 							status = e.status;
 						}
 					});
@@ -363,6 +362,7 @@ function DetailCampaign() {
 						if (status === false) {
 							toast.error(MESSAGE.networkError);
 						} else {
+							getInfoCampaign(id);
 							toast.success(MESSAGE.contributionSuccess);
 						}
 					}
@@ -406,13 +406,12 @@ function DetailCampaign() {
 					id="payment"
 					className=" bg-white rounded-lg w-[550px] h-[600px] flex flex-col gap-3 relative justify-center border-2 border-gray-400 z-50 items-center">
 					<p className=" text-center font-semibold ">You're donating to</p>
-					<div className=' absolute top-5 right-5 w-[50px] h-[32px] rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white flex justify-center items-center font-semibold'>
-						<Link href={`/campaign/${id}/votebutton`}>Vote</Link>	
+					<div className=" absolute top-5 right-5 w-[50px] h-[32px] rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white flex justify-center items-center font-semibold">
+						<Link href={`/vote/${id}`}>Vote</Link>
 					</div>
 					<Img src="/images/Logo_Image.png" alt="" width={100} height={100} />
 					<p className="text-5xl font-bold text-[#9CC5A0] mb-5">Charity Blue</p>
 					<div className=" w-[85%] justify-start items-start flex flex-col gap-3 pb-5">
-						
 						<div className="flex justify-between">
 							<div className="flex gap-1 items-center">
 								<label className="font-bold text-xl">Name:</label>
@@ -421,13 +420,13 @@ function DetailCampaign() {
 						</div>
 						<div className="flex justify-between">
 							<div className="flex gap-1 items-center">
-								<label className="font-bold text-xl">
-									Total Contributions:
-								</label>
-								<p className=" text-xl">{customNumber(totalContributions, 4)} ETH</p>
+								<label className="font-bold text-xl">Total Contributions:</label>
+								<p className=" text-xl">
+									{customNumber(totalContributions, 4)} ETH
+								</p>
 							</div>
 						</div>
-						<div className='flex justify-between w-[100%]'>
+						<div className="flex justify-between w-[100%]">
 							<div className="flex justify-between">
 								<div className="flex gap-1 items-center">
 									<label className="font-bold text-xl">Deadline:</label>
@@ -445,7 +444,7 @@ function DetailCampaign() {
 								</div>
 							</div>
 						</div>
-						<div className=' flex justify-between w-[100%]'>
+						<div className=" flex justify-between w-[100%]">
 							<div className="flex justify-between">
 								<div className="flex gap-1 items-center">
 									<label className="font-bold text-xl">Goal:</label>
@@ -479,13 +478,8 @@ function DetailCampaign() {
 					</div>
 					{renderButton()}
 				</div>
-				<div className=' absolute bottom-0 left-0'>
-					<Img 
-					src={"/images/jiji cat gif.gif"}
-					alt=''
-					width={500}
-					height={200}
-					/>
+				<div className=" absolute bottom-0 left-0">
+					<Img src={'/images/jiji cat gif.gif'} alt="" width={500} height={200} />
 				</div>
 			</div>
 		</Layout>

@@ -40,10 +40,11 @@ function Campaign() {
 		try {
 			let data = await crowdfundingContract.methods.getCampaignDetails(id).call();
 
-			const { name, deadline, totalUsersVote, totalVotesApprove } = data;
-			const vote = parseInt(totalUsersVote) === 0 ? 0 : totalVotesApprove / totalUsersVote;
+			const { name, deadline } = data;
+			const totalVotesApprove = convertWeiBigNumberToNumber(data.totalVotesApprove);
 			const goal = convertWeiBigNumberToNumber(data.goal);
 			const total = convertWeiBigNumberToNumber(data.totalContributions);
+			const vote = totalVotesApprove === 0 ? 0 : (totalVotesApprove / total) * 100;
 
 			return {
 				name,

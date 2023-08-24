@@ -12,9 +12,6 @@ export default {
 		crowdfunding: {
 			address: '0x2c4d843Af6F047A75d46FeC9e91CF0d8d271b0Cb',
 			abi: crowdfundingABI
-		},
-		ethToken: {
-			address: '0x2c4d843Af6F047A75d46FeC9e91CF0d8d271b0Cb'
 		}
 	}
 };

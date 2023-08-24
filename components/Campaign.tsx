@@ -1,45 +1,37 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { listCampaign } from '@/constants';
+import { customNumber } from '@/utils/common';
+import moment from 'moment';
 import Img from 'next/image';
 import Link from 'next/link';
-import { customNumber } from '@/utils/common';
-import { RootState } from './../redux/reducers/index';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
-import moment from 'moment';
-import configs from '../configs';
-import { getBalanceETH } from './../hooks/index';
+import { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import {
-	convertNumberToWei,
-	convertWeiBigNumberToNumber,
-	numberToGweiHex
-} from '../utils/web3js';
+import configs from '../configs';
+import { convertWeiBigNumberToNumber } from '../utils/web3js';
 
 function Campaign() {
-	const { address } = useSelector((state: RootState) => state.userReducers);
-	const [name, setName] = useState('-');
-	const [vote, setVote] = useState(0);
-	const [goal, setGoal] = useState(0);
-	const [deadline, setDeadline] = useState(0);
-	const [totalContributions, setTotalContributions] = useState(0);
-	const [isFunded, setIsFunded] = useState(false);
-	const [balance, setBalance] = useState(0);
-	const router = useRouter();
-	const { id } = router.query;
+	const [dataCampaign, setDataCampaign] = useState<any[]>([]);
 
 	useEffect(() => {
-		if (address) {
-			getBalanceUser(address);
-		}
-	}, [address]);
-
-	useEffect(() => {
-		getInfoCampaign(id);
+		getDataCampaign();
 	}, []);
 
+	const getDataCampaign = async () => {
+		const data: Array<any> = [];
 
-	const getInfoCampaign = async (id: string | string[] | undefined) => {
+		for (let index = 0; index < listCampaign.length; index++) {
+			const result = await getInfoCampaign(listCampaign[index].id);
+
+			data.push({
+				...listCampaign[index],
+				...result
+			});
+		}
+
+		setDataCampaign(data);
+	};
+
+	const getInfoCampaign = async (id: string | string[] | number) => {
 		const web3 = new Web3(configs.linkRPC);
 		const { crowdfunding } = configs.contracts;
 
@@ -48,31 +40,93 @@ function Campaign() {
 		try {
 			let data = await crowdfundingContract.methods.getCampaignDetails(id).call();
 
-			console.log({ data });
-			const { name, deadline, totalUsersVote, totalVotesApprove, isFunded } = data;
+			const { name, deadline, totalUsersVote, totalVotesApprove } = data;
 			const vote = parseInt(totalUsersVote) === 0 ? 0 : totalVotesApprove / totalUsersVote;
-			const goalTarget = convertWeiBigNumberToNumber(data.goal);
+			const goal = convertWeiBigNumberToNumber(data.goal);
 			const total = convertWeiBigNumberToNumber(data.totalContributions);
 
-			setName(name);
-			setVote(vote);
-			setDeadline(deadline);
-			setGoal(goalTarget);
-			setIsFunded(isFunded);
-			setTotalContributions(total);
+			return {
+				name,
+				vote,
+				goal,
+				total,
+				deadline
+			};
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const getBalanceUser = async (address: string) => {
-		const balanceUser: number = await getBalanceETH(address);
-
-		setBalance(balanceUser);
+	const renderItem = () => {
+		return dataCampaign.map((item) => (
+			<div
+				className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3 "
+				key={item.id}>
+				<Img
+					src={item.avatar}
+					alt=""
+					width={400}
+					height={240}
+					style={{ borderRadius: '10px', objectFit: 'contain' }}
+				/>
+				<div className="w-[95%] flex flex-col mx-[2.5%] gap-4">
+					<div className=" flex gap-2">
+						<div
+							className={` w-[35%] h-8 rounded-3xl bg-[${item.bg}] justify-center items-center flex`}>
+							<p className={`text-xs text-[${item.text}] font-semibold`}>
+								{item.type}
+							</p>
+						</div>
+						<div className="cursor-pointer w-[15%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex">
+							<p className="text-xs text-[#36bc98] font-semibold">VOTE</p>
+						</div>
+					</div>
+					<div className=" flex flex-col gap-4">
+						<p className=" text-2xl font-bold min-h-64">{item.name}</p>
+						<p className=" text-sm text-gray-500">{item.description}</p>
+					</div>
+					<div className=" flex gap-2">
+						<div className=" w-[90%] h-[14px] rounded-r-full rounded-l-full bg-[#EDEDED] flex flex-row">
+							<div
+								className={` w-[${customNumber(
+									item.vote
+								)}%] bg-[#EE9B3C] rounded-r-full rounded-l-full`}></div>
+						</div>
+						<span className=" text-xs">{customNumber(item.vote)}%</span>
+					</div>
+					<div className=" w-[100%] flex justify-between text-sm">
+						<p className=" text-gray-500">
+							Raised: <span className=" text-[#EE9B3C]">$1250</span>
+						</p>
+						<p className=" text-gray-500">
+							Goal: <span className="text-[#0A7558]">{item.goal} ETH</span>
+						</p>
+					</div>
+					<div className=" w-[100%] flex justify-between text-sm">
+						<p className=" text-gray-500">
+							Current Fund: <span className=" text-[#EE9B3C]">{item.total} ETH</span>
+						</p>
+						<p className=" text-gray-500">
+							Deadline:{' '}
+							<span className="text-[#0A7558]">
+								{item.deadline === 0
+									? '-'
+									: moment(item.deadline * 1005).format('DD/MM/YYYY')}
+							</span>
+						</p>
+					</div>
+					<Link
+						href={`/campaign/${item.id}`}
+						className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
+						Detail
+					</Link>
+				</div>
+			</div>
+		));
 	};
-	console.log(getInfoCampaign("1"))
+
 	return (
-		<div className=" w-[95vw] h-[100%] relative" id="campaign" >
+		<div className=" w-[95vw] h-[100%] relative" id="campaign">
 			<div className=" bg-[#FEFAF6] w-[100%] h-[100%] opacity-90"></div>
 			<div className=" w-[84%] justify-center items-center flex flex-col gap-4 absolute top-[5%] left-[8%]">
 				<p className=" text-5xl font-bold justify-items-start w-[100%]">
@@ -101,175 +155,7 @@ function Campaign() {
 				</div>
 			</div>
 			<div className=" w-[90%] grid grid-cols-3 absolute top-[25%] left-[5%] justify-items-center">
-				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3 " onChange={()=> getInfoCampaign("1")}>
-					<Img
-						src="/images/emergency.avif"
-						alt=""
-						width={400}
-						height={240}
-						style={{ borderRadius: '10px', objectFit: 'contain' }}
-					/>
-					<div className=" w-[95%] flex flex-col mx-[2.5%] gap-4">
-						<div className=" flex gap-2">
-							<div className=" w-[35%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex">
-								<p className=" text-xs text-[#664df9] font-semibold">
-									SOCIAL SERVICE
-								</p>
-							</div>
-							<div className=" cursor-pointer w-[15%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex">
-								<p className=" text-xs text-[#36bc98] font-semibold">VOTE</p>
-							</div>
-						</div>
-						<div className=" flex flex-col gap-4">
-							<p className=" text-2xl font-bold" >
-								{name}
-							</p>
-							<p className=" text-sm text-gray-500">
-								Help Donate for Cianjur Earthquake Victims by providing food,
-								clothes, medicines, for their daily needs
-							</p>
-						</div>
-						<div className=" flex gap-2">
-							<div className=" w-[90%] h-[14px] rounded-r-full rounded-l-full bg-[#EDEDED] flex flex-row">
-								<div className={` w-[${customNumber(vote)}%] bg-[#EE9B3C] rounded-r-full rounded-l-full`}></div>
-							</div>
-							<span className=" text-xs">{customNumber(vote)}%</span>
-						</div>
-						<div className=" w-[100%] flex justify-between text-sm">
-							<p className=" text-gray-500" >
-								Raised: <span className=" text-[#EE9B3C]">$1250</span>
-							</p>
-							<p className=" text-gray-500">
-								Goal: <span className="text-[#0A7558]">{goal} ETH</span>
-							</p>
-						</div>
-						<div className=" w-[100%] flex justify-between text-sm">
-							<p className=" text-gray-500">
-								Current Fund: <span className=" text-[#EE9B3C]" >{totalContributions} ETH</span>
-							</p>
-							<p className=" text-gray-500">
-								Deadline: <span className="text-[#0A7558]">{deadline === 0
-											? '-'
-											: moment(deadline * 1005).format('DD/MM/YYYY')}</span>
-							</p>
-						</div>
-						<Link
-							href="/campaign/1"
-							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							Detail
-						</Link>
-					</div>
-				</div>
-				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3" onChange={() => getInfoCampaign("3")}>
-					<Img
-						src="/images/educationCampaign.jpg"
-						alt=""
-						width={500}
-						height={265}
-						style={{ borderRadius: '10px', objectFit: 'contain' }}
-					/>
-					<div className=" w-[95%] flex flex-col mx-[2.5%] gap-4">
-						<div className=" flex gap-2">
-							<div className=" w-[35%] h-8 rounded-3xl bg-[#F9DCE6] justify-center items-center flex">
-								<p className=" text-xs text-[#F96E9E] font-semibold">EDUCATION</p>
-							</div>
-							<div className=" cursor-pointer w-[15%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex">
-								<p className=" text-xs text-[#36bc98] font-semibold">VOTE</p>
-							</div>
-						</div>
-						<div className=" flex flex-col gap-4">
-							<p className=" text-2xl font-bold" >
-								Campaign To Provide Books For Children
-							</p>
-							<p className=" text-sm text-gray-500">
-								Campaign to provide quality books for children who are in need of
-								proper education for their development
-							</p>
-						</div>
-						<div className=" flex gap-2">
-							<div className=" w-[90%] h-[14px] rounded-r-full rounded-l-full bg-[#EDEDED] flex flex-row">
-								<div className=" w-[70%] bg-[#EE9B3C] rounded-r-full rounded-l-full"></div>
-							</div>
-							<span className=" text-xs">70%</span>
-						</div>
-						<div className=" w-[100%] flex justify-between text-sm">
-							<p className=" text-gray-500">
-								Raised: <span className=" text-[#EE9B3C]">$2450</span>
-							</p>
-							<p className=" text-gray-500">
-								Goal: <span className="text-[#0A7558]">50 ETH</span>
-							</p>
-						</div>
-						<div className=" w-[100%] flex justify-between text-sm">
-							<p className=" text-gray-500">
-								Current Fund: <span className=" text-[#EE9B3C]">{customNumber(totalContributions, 4)} ETH</span>
-							</p>
-							<p className=" text-gray-500">
-								Deadline: <span className="text-[#0A7558]">09/12/2023</span>
-							</p>
-						</div>
-						<Link
-							href="/campaign/3"
-							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							Detail
-						</Link>
-					</div>
-				</div>
-				<div className=" w-[350px] h-[550px] bg-[#F9FAFA] rounded-xl flex flex-col gap-3" onChange={() => getInfoCampaign("2")}>
-					<Img
-						src="/images/cancer.avif"
-						alt=""
-						width={500}
-						height={265}
-						style={{ borderRadius: '10px', objectFit: 'contain' }}
-					/>
-					<div className=" w-[95%] flex flex-col mx-[2.5%] gap-4">
-						<div className="flex gap-2">
-							<div className=" w-[35%] h-8 rounded-3xl bg-[#CEE3DE] justify-center items-center flex">
-								<p className=" text-xs text-[#228267] font-semibold">
-									MEDICAL HELP
-								</p>
-							</div>
-							<div className=" cursor-pointer w-[15%] h-8 rounded-3xl bg-[#DFDCFA] justify-center items-center flex">
-								<p className=" text-xs text-[#36bc98] font-semibold">VOTE</p>
-							</div>
-						</div>
-						<div className=" flex flex-col gap-4">
-							<p className=" text-2xl font-bold">Help Children Cancer Fighters</p>
-							<p className=" text-sm text-gray-500">
-								Help the Children of Cancer Warriors to meet their needs for care
-								and treatment as well as possible to achieve recovery
-							</p>
-						</div>
-						<div className=" flex gap-2">
-							<div className=" w-[90%] h-[14px] rounded-r-full rounded-l-full bg-[#EDEDED] flex flex-row">
-								<div className=" w-[90%] bg-[#EE9B3C] rounded-r-full rounded-l-full"></div>
-							</div>
-							<span className=" text-xs">90%</span>
-						</div>
-						<div className=" w-[100%] flex justify-between text-sm">
-							<p className=" text-gray-500">
-								Raised: <span className=" text-[#EE9B3C]">$4050</span>
-							</p>
-							<p className=" text-gray-500">
-								Goal: <span className="text-[#0A7558]">10 ETH</span>
-							</p>
-						</div>
-						<div className=" w-[100%] flex justify-between text-sm">
-							<p className=" text-gray-500">
-								Current Fund: <span className=" text-[#EE9B3C]">{customNumber(totalContributions, 4)} ETH</span>
-							</p>
-							<p className=" text-gray-500">
-								Deadline: <span className="text-[#0A7558]">08/12/2023</span>
-							</p>
-						</div>
-						<Link
-							href="/campaign/2"
-							className=" text-white w-[100%] h-12 bg-[#0A7558] rounded-2xl mt-3 justify-center items-center flex">
-							Detail
-						</Link>
-					</div>
-				</div>
+				{renderItem()}
 			</div>
 		</div>
 	);

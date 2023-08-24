@@ -1,24 +1,3 @@
-export const ListCampaign = [
-	{
-		id: 1,
-		name: 'Help Donate For Cianjur Earthquake Victims',
-		goal: '$2500',
-		deadline: '27/08/2023'
-	},
-	{
-		id: 2,
-		name: 'Campaign To Provide Books For Children',
-		goal: '$3500',
-		deadline: '25/09/2023'
-	},
-	{
-		id: 3,
-		name: 'Help Children Cancer Fighters',
-		goal: '$4500',
-		deadline: '09/12/2023'
-	}
-];
-
 export const gasPrice = 20;
 export const MESSAGE = {
 	connectWallet: 'Connect wallet successfully!',
@@ -26,3 +5,36 @@ export const MESSAGE = {
 	errorExtension: 'Please install Metamask Extension!',
 	contributionSuccess: 'Contribution successfully'
 };
+
+export const listCampaign = [
+	{
+		id: 0,
+		avatar: '/images/emergency.avif',
+		title: 'Help Donate For Cianjur Earthquake Victims',
+		type: 'SOCIAL SERVICE',
+		bg: '#DFDCFA',
+		text: '#664df9',
+		description:
+			'Help Donate for Cianjur Earthquake Victims by providing food, clothes, medicines, for their daily needs'
+	},
+	{
+		id: 1,
+		avatar: '/images/educationCampaign.jpg',
+		title: 'Campaign To Provide Books For Children',
+		type: 'EDUCATION',
+		bg: '#F9DCE6',
+		text: '#F96E9E',
+		description:
+			'Campaign to provide quality books for children who are in need of proper education for their development'
+	},
+	{
+		id: 2,
+		avatar: '/images/cancer.avif',
+		title: 'Help Children Cancer Fighters',
+		type: 'MEDICAL HELP',
+		bg: '#CEE3DE',
+		text: '#228267',
+		description:
+			'Help the Children of Cancer Warriors to meet their needs for care and treatment as well as possible to achieve recovery'
+	}
+];

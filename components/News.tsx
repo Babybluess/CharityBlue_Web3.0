@@ -15,7 +15,7 @@ function News() {
 					</p>
 					<div className="flex gap-2 border-2 border-[#0A7558] w-[30%] h-12 justify-center items-center rounded-2xl">
 						<p className=" text-lg text-[#0A7558] font-semibold">
-							<a href="">See All News</a>
+							<a href="https://news.un.org/en/?gclid=Cj0KCQjw_5unBhCMARIsACZyzS2VO2bwiVECsGil3jCFjrB9-S6vJhIf2dI9N4oB1Ppp8v1mxqYeSjMaAiRsEALw_wcB">See All News</a>
 						</p>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

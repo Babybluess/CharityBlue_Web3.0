@@ -12,22 +12,24 @@ export const MESSAGE = {
 
 export const listCampaign = [
 	{
-		id: 0,
+		id: 1,
 		avatar: '/images/emergency.avif',
 		title: 'Help Donate For Cianjur Earthquake Victims',
 		type: 'SOCIAL SERVICE',
 		bg: '#DFDCFA',
 		text: '#664df9',
+		location: 'Cianjur Regency, Indonesia',
 		description:
 			'Help Donate for Cianjur Earthquake Victims by providing food, clothes, medicines, for their daily needs'
 	},
 	{
-		id: 1,
+		id: 3,
 		avatar: '/images/educationCampaign.jpg',
 		title: 'Campaign To Provide Books For Children',
 		type: 'EDUCATION',
 		bg: '#F9DCE6',
 		text: '#F96E9E',
+		location:'Mường Lát, Thanh Hóa',
 		description:
 			'Campaign to provide quality books for children who are in need of proper education for their development'
 	},
@@ -38,6 +40,7 @@ export const listCampaign = [
 		type: 'MEDICAL HELP',
 		bg: '#CEE3DE',
 		text: '#228267',
+		location: 'Texas, USA',
 		description:
 			'Help the Children of Cancer Warriors to meet their needs for care and treatment as well as possible to achieve recovery'
 	}

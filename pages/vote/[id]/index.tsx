@@ -18,7 +18,7 @@ function Vote() {
 	const { isLoading } = useSelector((state: RootState) => state.orderReducers);
 	const { address } = useSelector((state: RootState) => state.userReducers);
 	const userReducers = useSelector((state: RootState) => state.userReducers);
-	const [isApproved, setApproved] = useState(true);
+	const [isApproved, setApproved] = useState(false);
 	const [name, setName] = useState('-');
 	const router = useRouter();
 	const { id } = router.query;
@@ -154,9 +154,29 @@ function Vote() {
 			});
 	};
 
+	const handleClick = () =>{
+			if(isApproved == true){
+				setApproved(false);
+			} else {
+				setApproved(true);
+			}
+	}
+	
+	const backClick = () =>{
+		window.location.href =`/campaign/${id}`
+	}
+
 	return (
 		<Layout>
 			<div className=" w-full h-[100vh] bg-[#FDF9F0] justify-center items-center relative flex flex-col">
+				<div className=' absolute left-10 top-10 cursor-pointer hover:transition-transform hover:-translate-x-2' onClick={()=>backClick()}>
+					<Img
+						src={"/images/arrow-back.svg"}
+						alt=''
+						width={30}
+						height={30}
+					/>
+				</div>
 				<div className=" w-[30%] h-[50%] rounded-xl flex flex-col gap-8 bg-gradient-to-tr from-[#4655C8] to-[#FCC574] items-center justify-center z-50 border-2 border-gray-500">
 					<div className=" flex flex-col justify-center items-center">
 						<p className=" font-base">You trust </p>
@@ -165,23 +185,23 @@ function Vote() {
 						</p>
 					</div>
 					<div className="w-[100%] justify-center items-center flex">
-						<div className=" justify-between flex items-center w-[70%] mt-10  mb-3">
+						<div className=" justify-between flex items-center mt-10 mb-3">
 							<label
-								onClick={() => setApproved(true)}
+								onClick={() => handleClick()}
 								className={` ${
 									isApproved ? 'bg-[#414181]' : 'bg-white'
 								} cursor-pointer flex gap-1 rounded-[15px] border-2 border-gray-400 px-3 items-center justify-center `}>
 								<span className={'radio ' + (isApproved ? 'checked' : '')}></span>
 								<span className=" text-lg text-green-400">Approve</span>
 							</label>
-							<label
+							{/* <label
 								onClick={() => setApproved(false)}
 								className={` ${
 									!isApproved ? 'bg-[#414181]' : 'bg-white'
 								} cursor-pointer flex gap-1 rounded-[15px] px-4 items-center justify-center `}>
 								<span className={'radio ' + (!isApproved ? 'checked' : '')}></span>
 								<span className="text-lg text-pink-400">Reject</span>
-							</label>
+							</label> */}
 						</div>
 					</div>
 					<div className=" flex gap-2 bg-green-700 rounded-xl w-[180px] h-[50px] justify-center items-center">

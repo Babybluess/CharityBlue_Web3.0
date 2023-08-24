@@ -399,9 +399,21 @@ function DetailCampaign() {
 		setAmount({ value: value, error: false });
 	};
 
+	const backClick = () =>{
+		window.location.href ='/'
+	}
+
 	return (
 		<Layout>
 			<div className="w-full h-[100vh] bg-[#FFFBFF] relative justify-center items-center flex">
+				<div className=' absolute left-10 top-10 cursor-pointer hover:transition-transform hover:-translate-x-2' onClick={()=>backClick()}>
+					<Img
+						src={"/images/arrow-back.svg"}
+						alt=''
+						width={30}
+						height={30}
+					/>
+				</div>
 				<div
 					id="payment"
 					className=" bg-white rounded-lg w-[550px] h-[600px] flex flex-col gap-3 relative justify-center border-2 border-gray-400 z-50 items-center">

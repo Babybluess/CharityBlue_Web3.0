@@ -73,8 +73,8 @@ function Campaign() {
 				<div className="w-[95%] flex flex-col mx-[2.5%] gap-4">
 					<div className=" flex gap-2">
 						<div
-							className={` w-[35%] h-8 rounded-3xl bg-[${item.bg}] justify-center items-center flex`}>
-							<p className={`text-xs text-[${item.text}] font-semibold`}>
+							className={` w-[35%] h-8 rounded-3xl justify-center items-center flex`}  style={{ background: `${ item.bg }` }}>
+							<p className={`text-xs font-semibold`}  style={{ color: `${ item.text }` }}>
 								{item.type}
 							</p>
 						</div>
@@ -89,15 +89,15 @@ function Campaign() {
 					<div className=" flex gap-2">
 						<div className=" w-[90%] h-[14px] rounded-r-full rounded-l-full bg-[#EDEDED] flex flex-row">
 							<div
-								className={` w-[${customNumber(
-									item.vote
-								)}%] bg-[#EE9B3C] rounded-r-full rounded-l-full`}></div>
+								className={` bg-[#EE9B3C] rounded-r-full rounded-l-full`}  style={{ width: `${
+									customNumber(item.vote)
+								}%` }}></div>
 						</div>
 						<span className=" text-xs">{customNumber(item.vote)}%</span>
 					</div>
 					<div className=" w-[100%] flex justify-between text-sm">
 						<p className=" text-gray-500">
-							Raised: <span className=" text-[#EE9B3C]">$1250</span>
+							Location: <span className=" text-[#EE9B3C]">{item.location}</span>
 						</p>
 						<p className=" text-gray-500">
 							Goal: <span className="text-[#0A7558]">{item.goal} ETH</span>
@@ -105,7 +105,7 @@ function Campaign() {
 					</div>
 					<div className=" w-[100%] flex justify-between text-sm">
 						<p className=" text-gray-500">
-							Current Fund: <span className=" text-[#EE9B3C]">{item.total} ETH</span>
+							Raised: <span className=" text-[#EE9B3C]">{item.total} ETH</span>
 						</p>
 						<p className=" text-gray-500">
 							Deadline:{' '}

@@ -45,6 +45,7 @@ function Campaign() {
 			const goal = convertWeiBigNumberToNumber(data.goal);
 			const total = convertWeiBigNumberToNumber(data.totalContributions);
 			const vote = totalVotesApprove === 0 ? 0 : (totalVotesApprove / total) * 100;
+			console.log(totalVotesApprove, total, vote)
 
 			return {
 				name,
@@ -112,7 +113,7 @@ function Campaign() {
 							<span className="text-[#0A7558]">
 								{item.deadline === 0
 									? '-'
-									: moment(item.deadline * 1005).format('DD/MM/YYYY')}
+									: moment(item.deadline * 1000).format('DD/MM/YYYY')}
 							</span>
 						</p>
 					</div>

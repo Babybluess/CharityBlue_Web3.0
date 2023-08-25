@@ -23,7 +23,7 @@ export const listCampaign = [
 			'Help Donate for Cianjur Earthquake Victims by providing food, clothes, medicines, for their daily needs'
 	},
 	{
-		id: 3,
+		id: 2,
 		avatar: '/images/educationCampaign.jpg',
 		title: 'Campaign To Provide Books For Children',
 		type: 'EDUCATION',
@@ -34,7 +34,7 @@ export const listCampaign = [
 			'Campaign to provide quality books for children who are in need of proper education for their development'
 	},
 	{
-		id: 2,
+		id: 3,
 		avatar: '/images/cancer.avif',
 		title: 'Help Children Cancer Fighters',
 		type: 'MEDICAL HELP',

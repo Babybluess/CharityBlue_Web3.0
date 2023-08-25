@@ -10,7 +10,7 @@ export default {
 	symbol: 'ETH',
 	contracts: {
 		crowdfunding: {
-			address: '0xE9BC0728360637B9C7eb59B53E4F89915f54Da56',
+			address: '0xcdc54fBF11F9c28E55410af0227298098719D176',
 			abi: crowdfundingABI
 		}
 	}

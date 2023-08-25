@@ -49,14 +49,14 @@ const Navbar = () => {
 					Volunteers
 				</Link>
 				<div className=" flex w-[90px] items-center bg-[#0A7558] rounded-full justify-center">
-					<Link to="campaign" className="text-sm p-1 text-white">
+					<Link to="campaign" className="text-sm p-1 font-medium text-white">
 						Donate
 					</Link>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
 						viewBox="0 0 24 24"
-						strokeWidth="3.0"
+						strokeWidth="4.0"
 						stroke="currentColor"
 						className="w-3 h-3 text-white">
 						<path

@@ -142,7 +142,8 @@ const Navbar = () => {
 				</Link>
 				<Link
 					to="campaign"
-					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]">
+					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]"
+					onClick={()=>close()}>
 					Campaign
 				</Link>
 				<Link
@@ -156,6 +157,12 @@ const Navbar = () => {
 					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]"
 					onClick={()=>close()}>
 					Volunteers
+				</Link>
+				<Link
+					to="introduce"
+					className=" font-semibold text-gray-500 hover:underline hover:underline-offset-8 hover:decoration-[#0A7558] hover:text-[#0A7558]"
+					onClick={()=>close()}>
+					Introduce
 				</Link>
 				<div className=" flex w-[90px] items-center bg-[#0A7558] rounded-full justify-center hover:scale-110">
 					<Link to="campaign" className="text-sm p-1 text-white"

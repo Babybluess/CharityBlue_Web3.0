@@ -3,7 +3,7 @@ import React from 'react';
 function Introduction() {
 	return (
 		<div
-			id="introduction"
+			id="introduce"
 			className=" w-[95vw] bg-[#ffffff] h-[100%] justify-center items-center flex gap-12">
 			<div className=' flex w-[95%] gap-5 max-lg:flex-col max-lg:my-5 max-lg:items-center'>
 				<div className=" w-[60%] h-[80%] justify-center items-center flex">

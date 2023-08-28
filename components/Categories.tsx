@@ -7,8 +7,8 @@ function Categories() {
 			id="categories"
 			className=" w-[95vw] h-[100%] justify-center items-center bg-[#ffff] flex flex-col gap-20">
 			<div className=" w-[50%] justify-center text-center flex flex-col gap-5">
-				<p className="text-lg text-[#F2B065] font-bold">CATEGORIES</p>
-				<p className=" text-5xl font-bold">Program to Empower Others</p>
+				<p className="text-lg text-[#F2B065] font-bold max-lg:text-base">CATEGORIES</p>
+				<p className=" text-5xl font-bold max-lg:text-4xl">Program to Empower Others</p>
 			</div>
 			<div className=" w-[90%] h-auto grid grid-cols-4 gap-5 px-20">
 				<div className=" h-[350px] justify-center items-center flex flex-col gap-2 hover:shadow-2xl rounded-lg">
@@ -28,7 +28,7 @@ function Categories() {
 						</p>
 					</div>
 				</div>
-				<div className=" h-[350px] justify-center items-center flex flex-col gap-2 hover:shadow-2xl rounded-lg">
+				<div className=" h-[350px] justify-center items-center flex flex-col gap-2 hover:shadow-2xl rounded-lg max-lg:translate-y-10">
 					<div className=" w-20 h-20 bg-[#E0ECFE] rounded-full">
 						<Img
 							src="/images/medicalHelp.png"
@@ -62,7 +62,7 @@ function Categories() {
 						</p>
 					</div>
 				</div>
-				<div className=" h-[350px] justify-center items-center flex flex-col gap-2 hover:shadow-2xl rounded-lg">
+				<div className=" h-[350px] justify-center items-center flex flex-col gap-2 hover:shadow-2xl rounded-lg max-lg:translate-y-6">
 					<div className=" w-20 h-20 bg-[#FEE0EA] rounded-full">
 						<Img
 							src="/images/education2.png"

@@ -131,7 +131,7 @@ function Campaign() {
 		<div className=" w-[95vw] h-[100%] relative" id="campaign">
 			<div className=" bg-[#FEFAF6] w-[100%] h-[100%] opacity-90"></div>
 			<div className=" w-[84%] justify-center items-center flex flex-col gap-4 absolute top-[5%] left-[8%]">
-				<p className=" text-5xl font-bold justify-items-start w-[100%]">
+				<p className=" text-5xl font-bold justify-items-start w-[100%] max-md:text-4xl">
 					Introduce Our Campaign
 				</p>
 				<div className=" justify-between flex w-[100%]">
@@ -156,7 +156,7 @@ function Campaign() {
 					</div> */}
 				</div>
 			</div>
-			<div className=" w-[90%] grid grid-cols-3 absolute top-[25%] left-[5%] justify-items-center">
+			<div className=" w-[90%] grid grid-cols-3 max-lg:flex max-lg:flex-col max-md:justify-center max-md: items-center max-lg:gap-20 max-lg:-translate-y-[15%] max-md:-translate-y-[18%] absolute top-[25%] left-[5%] justify-items-center">
 				{renderItem()}
 			</div>
 		</div>

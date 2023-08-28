@@ -5,7 +5,7 @@ function About() {
 		<div
 			id="about"
 			className=" bg-[#FFFFFF] w-[95vw] h-[100%] relative justify-center items-center flex ">
-			<div className="w-[50%] h-[90%] items-center flex">
+			<div className="w-[50%] h-[90%] items-center flex max-lg:hidden">
 				<Img
 					src="/images/orangeCircle.png"
 					alt=""
@@ -44,10 +44,20 @@ function About() {
 					/>
 				</div>
 			</div>
+			<div className=' hidden max-lg:flex max-lg:-translate-x-10 '>
+				<Img
+						src="/images/about2.avif"
+						alt=""
+						objectFit='cover'
+						width={300}
+						height={500}
+						className=" rounded-br-[50%] rounded-tr-xl shadow-2xl z-10"
+					/>
+			</div>
 			<div className=" w-[30%] flex flex-col gap-10">
 				<div className=" ml-[14px] flex flex-col gap-8">
-					<p className=" text-lg text-[#F2B065] font-bold">ABOUT US</p>
-					<p className=" text-5xl font-bold">Help People In Need Around The World</p>
+					<p className=" text-lg text-[#F2B065] font-bold max-lg:text-base">ABOUT US</p>
+					<p className=" text-5xl font-bold max-lg:text-3xl">Help People In Need Around The World</p>
 					<p className="text-gray-500 text-sm">
 						We help provide necessities to help people in need around the world.
 					</p>

@@ -18,7 +18,7 @@ export default function Home() {
 
 	return (
 		<Layout>
-			<div className=" w-full h-[5550px] overflow-hidden bg-gradient-to-br from-[#65BB9B] to-[#EDD3A6]">
+			<div className=" w-full min-h-[5550px] overflow-hidden bg-gradient-to-br from-[#65BB9B] to-[#EDD3A6]">
 				<div className=" h-[100px] rounded-t-lg justify-center items-end flex">
 					<Navbar />
 				</div>
@@ -31,7 +31,7 @@ export default function Home() {
 				<div className=" h-[750px] flex justify-center">
 					<Categories />
 				</div>
-				<div className=" h-[850px] flex justify-center">
+				<div className=" h-[850px] flex justify-center max-lg:h-[2200px]">
 					<Campaign />
 				</div>
 				<div className=" h-[800px] flex justify-center">
@@ -40,7 +40,7 @@ export default function Home() {
 				<div className=" h-[700px] flex justify-center">
 					<Volunteer />
 				</div>
-				<div className=" h-[450px] flex justify-center">
+				<div className=" h-[450px] max-lg:h-[600px] flex justify-center">
 					<Introduction />
 				</div>
 				<div className=" h-[500px] flex justify-center">

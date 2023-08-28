@@ -7,9 +7,9 @@ function Footer() {
 		<div className=" w-[95vw] justify-center flex flex-col bg-gradient-to-r from-[#F2E6D3] to-[#D5E4DC] rounded-b-lg">
 			<div className=" h-[90%] w-[100%] px-[10%] flex justify-between items-center">
 				<div className=" w-[30%] flex flex-col gap-8 items-start h-[60%]">
-					<div className=" flex gap-5 items-center">
+					<div className=" flex gap-5 max-md:gap-2 items-center">
 						<Img src="/images/Logo_Image.png" alt="" width={60} height={60} />
-						<p className="text-3xl font-bold  text-[#9CC5A0]">CharityBlue</p>
+						<p className="text-3xl font-bold  text-[#9CC5A0] max-md:text-2xl">CharityBlue</p>
 					</div>
 					<p className=" text-gray-500">
 						CharityBlue is a digital platform for collecting donations to be distributed
@@ -44,33 +44,33 @@ function Footer() {
 						</svg>
 					</div>
 				</div>
-				<div className=" w-[50%] flex gap-36 justify-items-end">
+				<div className=" w-[50%] flex gap-36 max-lg:gap-10 justify-items-end">
 					<div className=" flex flex-col gap-5">
-						<p className="text-xl font-bold">Menu</p>
+						<p className="text-xl font-bold max-lg:text-lg">Menu</p>
 						<ul className=" flex flex-col gap-4">
-							<Link to='home' className="text-gray-500">Home</Link>
-							<Link to='about' className=" text-gray-500">About Us</Link>
-							<Link to='categories' className=" text-gray-500">Categories</Link>
-							<Link to='campaign' className=" text-gray-500">Campaign</Link>
-							<Link to='news' className=" text-gray-500">News</Link>
-							<Link to='volunteers' className=" text-gray-500">Volunteers</Link>
+							<Link to='home' className="text-gray-500 max-lg:text-sm">Home</Link>
+							<Link to='about' className=" text-gray-500 max-lg:text-sm">About Us</Link>
+							<Link to='categories' className=" text-gray-500 max-lg:text-sm">Categories</Link>
+							<Link to='campaign' className=" text-gray-500 max-lg:text-sm">Campaign</Link>
+							<Link to='news' className=" text-gray-500 max-lg:text-sm">News</Link>
+							<Link to='volunteers' className=" text-gray-500 max-lg:text-sm">Volunteers</Link>
 						</ul>
 					</div>
 					<div className=" flex flex-col gap-5">
-						<p className="text-xl font-bold">Categories</p>
+						<p className="text-xl font-bold max-lg:text-lg">Categories</p>
 						<ul className=" flex flex-col gap-4">
-							<li className="text-gray-500">Healthy Food</li>
-							<li className=" text-gray-500">Medical Help</li>
-							<li className=" text-gray-500">Clean Water</li>
-							<li className=" text-gray-500">Education</li>
+							<li className="text-gray-500 max-lg:text-sm">Healthy Food</li>
+							<li className=" text-gray-500 max-lg:text-sm">Medical Help</li>
+							<li className=" text-gray-500 max-lg:text-sm">Clean Water</li>
+							<li className=" text-gray-500 max-lg:text-sm">Education</li>
 						</ul>
 					</div>
 					<div className=" flex flex-col gap-5">
-						<p className="text-xl font-bold">About Us</p>
+						<p className="text-xl font-bold max-lg:text-lg">About Us</p>
 						<ul className=" flex flex-col gap-4">
-							<li className="text-gray-500">Contact Us</li>
-							<li className=" text-gray-500">FAQ</li>
-							<li className=" text-gray-500">Help</li>
+							<li className="text-gray-500 max-lg:text-sm">Contact Us</li>
+							<li className=" text-gray-500 max-lg:text-sm">FAQ</li>
+							<li className=" text-gray-500 max-lg:text-sm">Help</li>
 						</ul>
 					</div>
 				</div>

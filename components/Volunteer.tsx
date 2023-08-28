@@ -7,11 +7,11 @@ function Volunteers() {
 			className=" w-[95vw] bg-[#faf5f6] justify-center items-center flex gap-16">
 			<div className=" w-[30%] flex flex-col gap-8 justify-center">
 				<span className=" font-bold text-[#F2B065]">VOLUNTEER</span>
-				<p className=" text-5xl font-bold">Participate In Charity Around The Whole World</p>
+				<p className=" text-5xl font-bold max-lg:text-4xl">Participate In Charity Around The Whole World</p>
 				<p className=" text-gray-500">
 					Join our community volunteer and help people in need around the world.
 				</p>
-				<button className=" w-[40%] h-10 rounded-xl bg-[#0A7558] text-white font-semibold">
+				<button className=" w-[40%] max-lg:w-[80%] h-10 rounded-xl bg-[#0A7558] text-white font-semibold">
 					<a href="/volunteer-member">Become Voluneer</a>
 				</button>
 			</div>
@@ -34,7 +34,7 @@ function Volunteers() {
 						className=" rounded-2xl"
 					/>
 				</div>
-				<div className=" absolute w-[150px] h-[150px] rounded-xl top-[30%] right-[25%]">
+				<div className=" absolute w-[150px] h-[150px] rounded-xl top-[30%] right-[15%] max-lg:right-[5%] max-lg:w-[30%] max-lg:h-[15%]">
 					<Img
 						src="/images/volunteerSlogna1.jpg"
 						alt=""

@@ -32,4 +32,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
 Link CharityBlue Website: https://charity-blue-web3.vercel.app/
+
+CharityBlue Document: https://drive.google.com/drive/folders/17hEP-dRbKR1sQrI4mB268JCJbHvKAKM4
+
+CharityBlue Demo: https://www.youtube.com/watch?v=_YEI7U_h_Z0
+
+CharityBlue in Web3 Hackfest(https://web3-hackfest.devfolio.co/):  https://devfolio.co/projects/charityblue-11fe
